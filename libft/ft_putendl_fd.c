@@ -6,13 +6,13 @@
 /*   By: cnascime <cnascime@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/04 03:10:42 by cnascime          #+#    #+#             */
-/*   Updated: 2022/06/09 18:45:45 by cnascime         ###   ########.fr       */
+/*   Updated: 2022/08/08 18:37:30 by cnascime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putendl_fd(char *s, int fd)
+void	ft_putendl_fd(int fd, char *s)
 {
 	int	i;
 

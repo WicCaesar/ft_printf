@@ -6,14 +6,14 @@
 /*   By: cnascime <cnascime@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/09 18:45:22 by cnascime          #+#    #+#             */
-/*   Updated: 2022/06/08 15:13:46 by cnascime         ###   ########.fr       */
+/*   Updated: 2022/08/10 04:14:02 by cnascime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
 // Prints a number in a recursive way.
-void	ft_putnbr_fd(int n, int fd)
+void	ft_putnbr_fd(int fd, int n)
 {
 	unsigned char	c;
 

@@ -6,7 +6,7 @@
 /*   By: cnascime <cnascime@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/13 20:13:09 by cnascime          #+#    #+#             */
-/*   Updated: 2022/08/06 15:46:14 by cnascime         ###   ########.fr       */
+/*   Updated: 2022/08/10 07:29:08 by cnascime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,6 @@
 # define LIBFTPRINTF_H
 
 # include <stdio.h>
-# include <stdlib.h>
-# include <unistd.h>
 # include <stdarg.h>
 # include "libft/libft.h"
 # define BASEOCT "01234567"
@@ -32,4 +30,6 @@ typedef struct s_flags
 }	t_flags;
 
 int	ft_printf(const char *fixed, ...);
+int	ft_putint(int number);
+int	ft_putunsint(int number);
 #endif

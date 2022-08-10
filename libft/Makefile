@@ -18,25 +18,24 @@ FLAGS	= -Wall -Wextra -Werror
 
 # Compiles from open-source to binary, but doesn't link. Necessary to run flags.
 .c.o:		$(OBJECTS)
-	$(COMPILE) $(FLAGS) -c $< -o $(<:.c=.o)
+	@$(COMPILE) $(FLAGS) -c $< -o $(<:.c=.o)
 
 # Calling its name acts as its own makefile. Will compile only if the object 
 # dependencies are fulfilled. ar creates an archive (here, library) from the 
 # files member (objects), replacing them as needed. ranlib simply indexes 
 # every function in the library.
 $(NAME):	$(OBJECTS)
-	ar cr $(NAME) $(OBJECTS)
-	ranlib libft.a
+	@ar rcs $(NAME) $(OBJECTS)
 
 all:		$(NAME)
 
 # Removes only compiled objects.
 clean:
-	$(REMOVE) $(OBJECTS)
+	@$(REMOVE) $(OBJECTS)
 
 # Removes compiled objects first, then proceeds to remove the library itself.
 fclean:		clean
-	$(REMOVE) $(NAME)
+	@$(REMOVE) $(NAME)
 
 # Forces the recompilation even if everything is up to date.
 re:			fclean all

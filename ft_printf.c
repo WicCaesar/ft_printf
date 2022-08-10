@@ -6,34 +6,35 @@
 /*   By: cnascime <cnascime@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/20 21:51:16 by cnascime          #+#    #+#             */
-/*   Updated: 2022/08/06 16:51:32 by cnascime         ###   ########.fr       */
+/*   Updated: 2022/08/10 07:25:11 by cnascime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 #include "./libft/libft.h"
 
-// write(1, &"0123456789abcdef"[str[i] / 16], 1);
-int	treatment(char character, va_list listofarguments)
+// write(fd, &"0123456789abcdef"[str[i] / 16], 1);
+// write(fd, &("0123456789abcdef"[str[i] / 16]), 1); testar segundo ruchoa
+int	treatment(int fd, char character, va_list listofarguments)
 {
 	if (character == 'c')
-		return (ft_putchar_fd(va_arg(listofarguments, int), 1));
-	/*if (character == 's')
-		return (função(va_arg(listofarguments, char *)));
-	if (character == 'p')
-		return (função(va_arg(listofarguments, long long unsigned int)));
+		return (ft_putchar_fd(fd, va_arg(listofarguments, int)));
+	if (character == 's')
+		return (ft_putstr_fd(fd, va_arg(listofarguments, char *)));
+	/*if (character == 'p')
+		return (função(va_arg(listofarguments, long long unsigned int)));*/
 	if (character == 'd' || character == 'i')
-		return (função(va_arg(listofarguments, int)));
+		return (ft_putint(va_arg(listofarguments, int)));
 	if (character == 'u')
-		return (função(va_arg(listofarguments, unsigned int)));
-	if (character == 'o')
+		return (ft_putunsint(va_arg(listofarguments, unsigned int)));
+	/*if (character == 'o')
 		return (função(va_arg(listofarguments, unsigned int)));
 	if (character == 'x')
 		return (função(va_arg(listofarguments, unsigned int)));
 	if (character == 'X')
 		return (função(va_arg(listofarguments, unsigned int)));*/
 	if (character == '%')
-		return (ft_putchar_fd(character, 1));
+		return (ft_putchar_fd(fd, character));
 	return (0);
 }
 
@@ -42,7 +43,7 @@ int	treatment(char character, va_list listofarguments)
 0 ~Left-pads~ the number with zeroes (0) instead of spaces.
 . precision (displays only .X amount of characters)
 # Used with o, x or X specifiers, the value is ~preceded~ with 0, 0x or 0X
-respectively for values different than zero.
+respectively for values different from zero.
 Used with e, E and f, it forces the written output to contain a decimal point
 even if no digits would follow.
 By default, if no digits follow, no decimal point is written.
@@ -88,20 +89,22 @@ int	ft_printf(const char *fixed, ...)
 {
 	int		index;
 	int		count;
+	int		fd;
 	va_list	listofarguments;
 
 	index = 0;
 	count = 0;
+	fd = 1;
 	va_start(listofarguments, fixed);
 	while (fixed[index] != '\0')
 	{
 		if (fixed[index] == '%' && ft_strchr("cspdiuoxX%", fixed[index + 1]))
 		{
-			count += ft_putchar_fd(fixed[index], 1);
+			count += treatment(fd, fixed[index + 1], listofarguments);
 			index++;
 		}
 		else
-			count += ft_putchar_fd(fixed[index], 1);
+			count += ft_putchar_fd(fd, fixed[index]);
 		index++;
 	}
 	va_end(listofarguments);
