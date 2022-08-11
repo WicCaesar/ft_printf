@@ -6,17 +6,31 @@
 /*   By: cnascime <cnascime@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/01 03:58:29 by cnascime          #+#    #+#             */
-/*   Updated: 2022/08/11 05:04:18 by cnascime         ###   ########.fr       */
+/*   Updated: 2022/08/11 08:02:36 by cnascime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char		*ft_itoa(int n);
-char		*ft_utoa(unsigned int n);
-char		*ft_htoa(char lettercase, unsigned int n);
-char		*ft_ptoa(unsigned long long n);
-static int	ft_places(long number);
+// Calculates how many decimal places the string'll need.
+static int	ft_places(long number)
+{
+	size_t	places;
+
+	places = 0;
+	if (number <= 0)
+	{
+		places++;
+		number *= -1;
+	}
+	while (number > 0)
+	{
+		places++;
+		number /= 10;
+	}
+	places++;
+	return (places);
+}
 
 // Simply counts the amount of decimal places there'll be in the final integer.
 // Also checks if it's a negative and saves a space for the minus operator.
@@ -45,26 +59,6 @@ char	*ft_itoa(int n)
 	}
 	string[places - 1] = number + '0';
 	return (string);
-}
-
-// Calculates how many decimal places the string'll need.
-static int	ft_places(long number)
-{
-	size_t	places;
-
-	places = 0;
-	if (number <= 0)
-	{
-		places++;
-		number *= -1;
-	}
-	while (number > 0)
-	{
-		places++;
-		number /= 10;
-	}
-	places++;
-	return (places);
 }
 
 // Same as itoa, but for positive values only.

@@ -6,7 +6,7 @@
 /*   By: cnascime <cnascime@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/20 21:51:16 by cnascime          #+#    #+#             */
-/*   Updated: 2022/08/11 04:51:32 by cnascime         ###   ########.fr       */
+/*   Updated: 2022/08/11 08:09:24 by cnascime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,13 +38,8 @@ int	treatment(int fd, char character, va_list listofarguments)
 - Left-justify within the given field width; Right justification is the default.
 0 ~Left-pads~ the number with zeroes (0) instead of spaces.
 . precision (displays only .X amount of characters)
-# Used with o, x or X specifiers, the value is ~preceded~ with 0, 0x or 0X
+# Used with x or X specifiers, the value is ~preceded~ with 0, 0x or 0X
 respectively for values different from zero.
-Used with e, E and f, it forces the written output to contain a decimal point
-even if no digits would follow.
-By default, if no digits follow, no decimal point is written.
-Used with g or G the result is the same as with e or E,
-but trailing zeros are not removed.
 + Forces to precede the result with a + or - sign, even for positive numbers.
 space If no sign is going to be written, a space is inserted before the value.
 
