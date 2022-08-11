@@ -6,33 +6,29 @@
 /*   By: cnascime <cnascime@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/20 21:51:16 by cnascime          #+#    #+#             */
-/*   Updated: 2022/08/10 07:25:11 by cnascime         ###   ########.fr       */
+/*   Updated: 2022/08/11 04:51:32 by cnascime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 #include "./libft/libft.h"
 
-// write(fd, &"0123456789abcdef"[str[i] / 16], 1);
-// write(fd, &("0123456789abcdef"[str[i] / 16]), 1); testar segundo ruchoa
 int	treatment(int fd, char character, va_list listofarguments)
 {
 	if (character == 'c')
 		return (ft_putchar_fd(fd, va_arg(listofarguments, int)));
 	if (character == 's')
 		return (ft_putstr_fd(fd, va_arg(listofarguments, char *)));
-	/*if (character == 'p')
-		return (função(va_arg(listofarguments, long long unsigned int)));*/
+	if (character == 'p')
+		return (ft_putpointer(va_arg(listofarguments, unsigned long int)));
 	if (character == 'd' || character == 'i')
 		return (ft_putint(va_arg(listofarguments, int)));
 	if (character == 'u')
 		return (ft_putunsint(va_arg(listofarguments, unsigned int)));
-	/*if (character == 'o')
-		return (função(va_arg(listofarguments, unsigned int)));
 	if (character == 'x')
-		return (função(va_arg(listofarguments, unsigned int)));
+		return (ft_puthex('l', va_arg(listofarguments, unsigned int)));
 	if (character == 'X')
-		return (função(va_arg(listofarguments, unsigned int)));*/
+		return (ft_puthex('U', va_arg(listofarguments, unsigned int)));
 	if (character == '%')
 		return (ft_putchar_fd(fd, character));
 	return (0);

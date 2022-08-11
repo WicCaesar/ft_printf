@@ -6,10 +6,11 @@
 /*   By: cnascime <cnascime@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/06 16:08:08 by cnascime          #+#    #+#             */
-/*   Updated: 2022/08/10 07:28:20 by cnascime         ###   ########.fr       */
+/*   Updated: 2022/08/11 04:35:07 by cnascime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdio.h>
 #include "libftprintf.h"
 
 int	main(void)
@@ -23,6 +24,10 @@ int	main(void)
 	size_t	uinteger2;
 	size_t	uinteger3;
 	size_t	uinteger4;
+	size_t	hexa;
+	size_t	hexa2;
+	size_t	hexa3;
+	size_t	hexa4;
 
 	string = "Hello, World! %%%%";
 	character = 'W';
@@ -33,6 +38,10 @@ int	main(void)
 	uinteger2 = 2147483649;
 	uinteger3 = 4294967295;
 	uinteger4 = 4815162342;
+	hexa = 0;
+	hexa2 = 2;
+	hexa3 = 10;
+	hexa4 = 16;
 	ft_printf(string);
 	ft_printf("\n");
 	ft_printf("Hello, World! %%%%\n");
@@ -60,6 +69,24 @@ int	main(void)
 	printf("%u\n", uinteger3);
 	ft_printf("%u\n", uinteger4);
 	printf("%u\n", uinteger4);
+	ft_printf("%x\n", hexa);
+	printf("%x\n", hexa);
+	ft_printf("%x\n", hexa2);
+	printf("%x\n", hexa2);
+	ft_printf("%x\n", hexa3);
+	printf("%x\n", hexa3);
+	ft_printf("%x\n", hexa4);
+	printf("%x\n", hexa4);
+	ft_printf("%X\n", hexa);
+	printf("%X\n", hexa);
+	ft_printf("%X\n", hexa2);
+	printf("%X\n", hexa2);
+	ft_printf("%X\n", hexa3);
+	printf("%X\n", hexa3);
+	ft_printf("%X\n", hexa4);
+	printf("%X\n", hexa4);
+	ft_printf("%p\n", &integer);
+	printf("%p\n", &integer);
 	return (0);
 }
 
